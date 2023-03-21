@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Transparent Login Form with Blur Background</title>
+	<link href="https://th.bing.com/th/id/OIP.KQidAJfGYYFkahKoekRY5AHaFC?pid=ImgDet&rs=1" rel="stylesheet">
+	<link href="./login.component.css" rel="stylesheet">
+</head>
+<body>
+	<div class="contact-form">
+		<h2>LogIn</h2>
+      <form [formGroup]="Login" (ngSubmit)="ProceedLogin()">
+        <p>User Role</p>
+        <ul> <select formControlName="role" class="form-control" (change)="changeRole($event)">
+          <option value="" disabled selected>Select Role</option>
+         
+          <option *ngFor="let Role of rolelist">{{Role}}</option>
+          
+           </select>
+           
+    
+          </ul>
+          <div *ngIf="form.role.touched && form.role.invalid" class="alert alert-danger">
+            <div *ngIf="form.role.errors?.['required']">Role is required.</div>
+        </div>
+        <p>Email</p>
+        <input type="text" id="txtemail" class="form-control" formControlName="email" placeholder="Enter the Email"   autocomplete="off">
+        <div *ngIf="form.email.touched && form.email.invalid" class="alert alert-danger">
+        <div *ngIf="form.email.errors?.['required']">Email is required.</div>
+        </div>
+			  <p>Password</p>
+        <input type="password" id="txtpassword" class="form-control" formControlName="password"  placeholder="Enter the password"  autocomplete="off"> 
+        <div *ngIf="form.password.touched && form.password.invalid" class="alert alert-danger">
+          <div *ngIf="form.password.errors?.['required']">password is required.</div>
+         
+      </div>
+            <input type="submit" value="Sign in">
+            <p class="small-xl pt-3 text-center">
+                <span style="color: white;">Not a member?</span>
+                <a href="#" routerLink="/registration" style="color: rgb(12, 13, 14);">Sign up</a>
+		  </form>
+	</div>
+</body>
+
+</html>
+
+
+<!-- <div class="mb-3">
+  <h6>Select your Role</h6>
+  <div class="dropdown mb-3">
+
+  </div>
+      
+     <ul> <select formControlName="role" class="form-control" (change)="changeRole($event)">
+      <option value="" disabled selected>Select Role</option>
+     
+      <option *ngFor="let Role of rolelist">{{Role}}</option>
+       </select>
+
+      </ul>
+      <div *ngIf="form.role.touched && form.role.invalid" class="alert alert-danger">
+        <div *ngIf="form.role.errors?.['required']">Role is required.</div>
+    </div> -->
+
+
+    <!-- <div class="container" style="margin-top: 50px; padding-bottom: 90px; width: 500px;">
+      <div class="mb-3">
+      <h1 style="color:rgb(77, 172, 77); font-weight:bold; ">Login</h1>
+      </div>
+      
+      <form [formGroup]="Login" (ngSubmit)="[ProceedLogin()]">
+          <div class="mb-3">
+              <h6>Select your Role</h6>
+              <div class="dropdown mb-3">
+  
+              </div>
+                  
+                 <ul> <select formControlName="role" class="form-control" (change)="changeRole($event)">
+                  <option value="" disabled selected>Select Role</option>
+                 
+                  <option *ngFor="let role of rolelist">{{role}}</option>
+                   </select>
+  
+                  </ul>
+                  <div *ngIf="form.role.touched && form.role.invalid" class="alert alert-danger">
+                    <div *ngIf="form.role.errors?.['required']">Role is required.</div>
+                </div>
+                  
+                  
+                </div>
+            <label for="exampleInputUsername" class="form-label">User name</label>
+            <input type="text" class="form-control" id="exampleInputUsername" formControlName="username">
+            <div *ngIf="form.username.touched && form.username.invalid" class="alert alert-danger">
+              <div *ngIf="form.username.errors?.['required']">Username is required.</div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+          </div>
+          <div *ngIf="form.password.touched && form.password.invalid" class="alert alert-danger">
+            <div *ngIf="form.password.errors?.['required']">password is required.</div>
+           
+        </div>
+        <div *ngIf="errormessage.length>1">
+         <h6 style ="color:red;">Password or userName is Incorrect!</h6>
+         
+         </div>
+          
+          <button type="submit"  class="btn btn-success">Login</button>
+        </form>
+        </div> -->
+  
+  

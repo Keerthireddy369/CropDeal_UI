@@ -1,0 +1,45 @@
+
+
+<body>
+
+    <div  class="container">
+      
+        <div class="col-sm-4 mt-1 mb-1 ms-3 position1 text-center">
+            <button routerLink="/admin-page" id="backbtn"  class="btn btn-warning btn-rounded">Back</button>
+        </div>
+             
+      <table   class="table table-striped" id="datatable" style="width: 100%;">
+        <thead class="bg-primary text-dark">
+          <tr>
+            <th style="font-size:30px;" >User Id</th>
+            <th style="font-size:30px;">Name</th>
+            <th style="font-size:30px;">Role</th>
+            <th style="font-size:30px;">User Status</th>
+            <th style="font-size:30px;">Change Status</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of profile| 
+        
+        paginate:{ itemsPerPage: 10 , currentPage: p ,
+          totalItems:totalLength}">
+          <tr>
+            <td style="font-size:20px;">{{item.userId}}</td>
+            <td style="font-size:20px;">{{item.userName}}</td>
+            <td style="font-size:20px;">{{item.userType}}</td>
+            <td style="font-size:20px;">{{item.userStatus}}</td>
+            <td style="font-size:20px;"><button *ngIf="item.userStatus =='Active'"  (click)="ChangeStatus(item.userId,item.userStatus) "   class="btn  btn-sm btn-danger" type="button">Inactive</button>
+                <button *ngIf="item.userStatus =='Inactive'" (click)="ChangeStatus(item.userId,item.userStatus)"   class="btn  btn-sm btn-success" type="button">Active</button> </td>
+              
+                
+          </tr>
+          
+          
+        </tbody>
+      </table>
+    
+      <br>
+            <div>
+            <pagination-controls class="text-center" (pageChange)=" p =$event" style="font-weight: bolder;"></pagination-controls>
+          </div>
+      </div>
+    

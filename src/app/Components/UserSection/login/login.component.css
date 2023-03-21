@@ -1,0 +1,104 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+  z-index: 0;
+}
+body:before {
+	content: '';
+	position: absolute;
+	width: 100vw;
+	height: 95vh;
+	background-image: url('https://th.bing.com/th/id/OIP.KQidAJfGYYFkahKoekRY5AHaFC?pid=ImgDet&rs=1');
+	background-position: center center;
+	background-repeat: repeat;
+	background-attachment: scroll;
+	-webkit-background-size: cover;
+	background-size: cover;
+	
+}
+.contact-form {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 600px;
+	height: 600px;
+	padding: 80px 60px;
+	background: rgba(67, 246, 91, 0.48);
+}
+.avatar {
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	border-radius: 100%;
+	overflow: hidden;
+	top: calc(-80px/2);
+	left: 250px;
+}
+.contact-form h2 {
+	margin: 0;
+	padding: 0 0 20px;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+}
+.contact-form p {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	color: #fff;
+    font-size:20px;
+}
+.contact-form input {
+	width: 100%;
+	margin-bottom: 20px;
+}
+.contact-form ::placeholder{
+color:black;
+}
+ul{
+  width: 100%;
+	margin-bottom: 25px;
+  border: none;
+	border-bottom: 1px solid transparent;
+	background: transparent;
+	outline: none;
+	height: 40px;
+  width: 300px;
+	color: #fff;
+	font-size: 18px;
+  font-weight: bolder;
+}
+/* .ul.select{
+  background: transparent;
+  width: 100%;
+  outline: none;
+} */
+.contact-form input[type=text], .contact-form input[type=password] {
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 20px;
+}
+.contact-form input[type=submit] {
+	height: 40px;
+	color: rgb(17, 17, 17);
+	font-size: 20px;
+	background: rgb(232, 244, 232);
+	cursor: pointer;
+	border-radius: 20px;
+	border: none;
+	outline: none;
+	margin-top: -15%;
+}
+.contact-form a {
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+}
+

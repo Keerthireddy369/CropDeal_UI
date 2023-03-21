@@ -1,0 +1,96 @@
+<body >
+    <div class="container" style=" padding-bottom: 50px; width:590px;">
+    <div class="mb-1">
+    <h1 style="color:brown; font-weight: bold; text-align: center; font-size:40px; ">Enter Your New Crop Details</h1>
+    </div>
+    <br>
+    <form [formGroup]="cropform" (ngSubmit)="addcroponSale()" >
+
+        
+            
+
+        <div class="mb-1" >
+          <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;font-size: 20px;color:darkblue;">Enter Your Crop Name :</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          formControlName="cropName">
+         </div>
+          <div *ngIf="form.cropName.touched && form.cropName.invalid" class="alert alert-danger">
+            <div *ngIf="form.cropName.errors?.['required']">Crop Name is required.</div>
+        </div>
+        <div class="mb-1">
+          <h6 style="font-weight: bold; font-size: 20px;color:darkblue;">Crop Family :</h6>
+          <div class="dropdown mb-3">
+  
+          </div>
+              
+             <ul> <select formControlName="cropId" class="form-control" >
+              <option value="" disabled selected > select crop family</option>
+              <option *ngFor="let Role of croplist" value="{{Role.cropId}}">{{Role.cropName}}</option>
+               </select>
+  
+              </ul>
+              <div *ngIf="form.cropId.touched && form.cropId.invalid" class="alert alert-danger">
+                <div *ngIf="form.cropId.errors?.['required']">crop family is required.</div>
+          </div>
+              
+              
+        </div>
+
+        <div class="mb-1">
+          <h6 style="font-weight: bold; font-size: 20px;color:darkblue;">Crop Type :</h6>
+          <div class="dropdown mb-3">
+  
+          </div>
+              
+             <ul> <select formControlName="cropType" class="form-control" >
+              <option value="" disabled selected>select crop type</option>
+              <option *ngFor="let Role of croptype" >{{Role}}</option>
+               </select>
+  
+              </ul>
+              <div *ngIf="form.cropType.touched && form.cropType.invalid" class="alert alert-danger">
+                <div *ngIf="form.cropType.errors?.['required']">crop Type is required.</div>
+          </div>
+              
+              
+        </div>
+
+        <div class="mb-1">
+          <label for="exampleInputPassword1" class="form-label" style="font-weight: bold;font-size: 20px;color:darkblue;"> Crop Quantity : </label>
+          <input type="text" class="form-control" id="exampleInputPassword1" formControlName="cropQty">
+         </div>
+  
+        <div *ngIf="form.cropQty.touched && form.cropQty.invalid" class="alert alert-danger">
+          <div *ngIf="form.cropQty.errors?.['required']">Crop Quantity is required.</div>
+          </div>
+      
+        
+        <div class="mb-1">
+          <label for="exampleInputcropprice" class="form-label" style="font-weight: bold;font-size: 20px;color:darkblue;">Crop Price :</label>
+          <input type="text" class="form-control" id="exampleInputcropprice" formControlName="cropPrice">
+        </div>
+        <div *ngIf="form.cropPrice.touched && form.cropPrice.invalid" class="alert alert-danger">
+          <div *ngIf="form.cropPrice.errors?.['required']">crop Price is required.</div>
+      </div>
+      <!-- <div class="mb-1">
+        <label for="exampleInputfarmerid" class="form-label" style="font-weight: bold;">Farmer Id</label>
+        <input type="text" class="form-control" id="exampleInputfarmerid" formControlName="farmerId">
+      </div>
+      <div *ngIf="form.farmerId.touched && form.farmerId.invalid" class="alert alert-danger">
+        <div *ngIf="form.farmerId.errors?.['required']">FarmerId is required.</div>
+    </div> -->
+    <br>
+        <button type="submit" class="btn btn-success" style="font-weight: bold;font-size: 20px;"  >Post Crop</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="back" class="btn btn-danger" style="font-weight: bold;font-size: 20px;" routerLink="/onSale">Back</button>
+   </form>
+      </div>
+</body>

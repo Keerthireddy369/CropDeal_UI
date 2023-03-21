@@ -1,0 +1,50 @@
+<router-outlet></router-outlet>
+<body>
+    <div class="outer">
+    <div class="card-box">
+        <div class="row">
+          <div class="col-sm-4">
+            <a routerLink="/addonsale" id="addbtn"  class="btn btn-success btn-rounded">Add New</a>
+            <a routerLink="/farmer-page" id="backbtn"  class="btn btn-success btn-warning">Back</a>
+        </div>
+      </div>
+      <br>
+        
+        <div class="row">
+                  <div class="table-responsive">
+                      
+                        <table class="table table-bordered" id="datatable" role="grid">
+                          <thead style="font-size:30px;background-color: limegreen;" >
+                              <tr role="row" >
+                                <th >Crop Sale Id</th>
+                                <th >Crop Id</th>
+                                <th >Crop Name</th>
+                                <th >Crop Type</th>
+                                <th >Crop Quantity(KG)</th>
+                                <th >Crop Price/KG</th>
+                                <!-- <th>Farmer Id</th> -->
+                                <th >Actions</th>
+                                </tr>
+                          </thead>
+                          <tbody style="font-size:20px;">
+     <tr *ngFor="let item of croponsalelist |  
+    paginate:{ itemsPerPage: 5 , currentPage: p ,
+      totalItems:totalLength }">
+    <td>{{item.cropSaleId}}</td>
+    <td>{{item.cropId}}</td>
+    <td>{{item.cropName}}</td>
+    <td>{{item.cropType}}</td>
+    <td>{{item.cropQty}}</td>
+    <td>{{item.cropPrice|currency:'INR'}}</td>
+    <!-- <td>{{item.farmerId}}</td> -->
+    <td><button (click)="delete(item.cropSaleId)" class="btn btn-danger" style="padding:15px;">Delete</button></td>
+    </tr>
+                          </tbody>
+                      </table>
+                    
+                  </div>
+              </div>
+            </div>
+            <pagination-controls class="text-center" (pageChange)=" p =$event" style="font-weight: bolder;"></pagination-controls>
+          </div>
+        </body>

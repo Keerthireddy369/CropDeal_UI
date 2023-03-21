@@ -1,0 +1,55 @@
+<router-outlet></router-outlet>
+<body>
+    <div class="outer">
+        <button type="button" class="btn btn-warning" routerLink="/cart" style="float:right;padding:15px;" ><i class="fa-solid fa-cart-plus"></i> Cart</button>
+
+      <button type="back" class="btn btn-danger" routerLink="/dealer-page" style="padding:15px;">Back</button>
+    <div class="card-box">
+        <div class="row">
+      </div>
+      <br>
+        
+        <div class="row">
+                  <div class="table-responsive">
+                      
+                        <table class="table table-bordered" id="datatable" role="grid" >
+                          <thead class="bg-primary text-light">
+                              <tr role="row" style="font-size:30px;">
+                                <th>Crop Sale Id</th>
+                                <!-- <th>Crop Image</th> -->
+                                <th>Crop Name</th>
+                                <th>Crop Type</th>
+                                <th>Crop Quantity(in KG)</th>
+                                <th>Crop Price/KG</th>
+                                <!-- <th>Farmer Id</th> -->
+                                <!-- <th>Farmer Address</th>
+                                <th>Farmer Name</th>
+                                <th>Farmer Phone Number</th> -->
+                                <th>Actions</th>
+                                </tr>
+                          </thead>
+                          <tbody>
+    <tr *ngFor="let item of cropviewlist | 
+    paginate:{ itemsPerPage: 5 , currentPage: p ,
+      totalItems:totalLength }" style="font-size:25px;color:rgb(9, 9, 9);">
+    <td>{{item.cropSaleId}}</td>
+    <!-- <td><img [src]="item.cropImage" alt="image not found" height="100" width="100"></td> -->
+    <td>{{item.cropName}}</td>
+    <td>{{item.cropType}}</td>
+    <td>{{item.cropQty }}</td>
+    <td>{{item.cropPrice|currency:'INR'}}</td>
+    <!-- <td>{{item.farmerId}}</td> -->
+    <!-- <td>{{item.farmerAddress}}</td>
+    <td>{{item.farmerName}}</td>
+    <td>{{item.farmerPhoneNo}}</td> -->
+    <td><button type="button" class="btn btn-success" (click)="SendCropData(item)" style="padding:15px;">Buy</button></td>
+    </tr>
+                          </tbody>
+                      </table>
+                    
+                  </div>
+              </div>
+            </div>
+            <pagination-controls class="text-center" (pageChange)=" p =$event" style="font-weight: bold;"></pagination-controls>
+          </div>
+        </body>

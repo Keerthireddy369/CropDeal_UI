@@ -1,0 +1,80 @@
+
+<!-- header starts from here-->
+<body>
+<div class="outer">
+    <button type="back" class="btn btn-warning" routerLink="/viewcrops" style="padding:15px;" ><i class=""></i> Back</button>
+
+</div>
+<!-- cart starts from here--><div class="container px-3 my-5 clearfix">
+            <!-- Shopping cart table -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 align ="center" style="color:Green;font-weight: bold;">Your Cart</h2>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered m-0">
+                            <thead style="text-align:center;color:brown;">
+                                <tr>
+                                    <th>
+                                        <h4>Crop Id</h4>
+                                    </th>
+                                    <th>
+                                        <h4>Crop Name</h4>
+                                    </th>
+                                    <th>
+                                        <h4>Quantity</h4>
+                                    </th>
+                                    <th>
+                                        <h4>Price</h4>
+                                    </th>
+                                    <th>
+                                        <h4>Total Price</h4>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let number of CropDetails">
+                                    <td>
+                                        {{number.cropSaleId}}
+                                    </td>
+                                    <td>
+                                        {{number.cropName}}
+                                    </td>
+                                    <td>
+                                        <input type="number" value="1" [(ngModel)]="number.cropQty">
+                                    </td>
+                                    <td>
+                                        {{number.cropPrice}}
+                                    </td>
+                                    <td>
+                                        {{number.cropPrice*number.cropQty}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- / cart table -->
+                    <div class=" d-flex flex-wrap justify-content-between align-items-center pb-4">
+                        <div class="d-flex">
+
+                        </div>
+                    </div>
+                    <div class="float-right">
+                        <p align="right">
+                            <button class="btn btn-info btn-lg float-left" (click)="TotalAmount()">Total Amount</button>
+                            <br>
+                            <br>
+                            <strong>{{OrderTotal}}</strong>
+                        </p>
+                    </div>
+                    <div class="float-right">
+                        <p align="right">
+                            <button class="btn btn-success btn-lg float-left" type="submit" (click)="AddOrders(CropDetails)">Check out</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+        <!--footer starts from here-->

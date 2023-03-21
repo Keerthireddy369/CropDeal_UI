@@ -1,0 +1,21 @@
+<body>
+    <div class="container" style=" padding-bottom: 50px; width:590px;">
+    <div class="mb-1">
+    <h1 style="color:black; font-weight: bold; text-align: center; ">Post your Crop On Sale</h1>
+    </div>
+    <form [formGroup]="cropaddform" (ngSubmit)="addcrop()">
+        <div class="mb-1">
+          <label for="exampleInputName" class="form-label" style="font-weight: bold;">Enter Your Crop Name</label>
+          <input type="text" class="form-control" id="exampleInputName" aria-describedby="NameHelp" formControlName="cropName">
+         </div>
+          <div *ngIf="form.cropName.touched && form.cropName.invalid" class="alert alert-danger">
+            <div *ngIf="form.cropName.errors?.['required']">Crop Name is required.</div>
+        </div>
+       
+  
+       
+        <button type="submit" class="btn btn-success" style="font-weight: bold;"  >Post Crop</button>
+        <button type="back" class="btn btn-danger" style="font-weight: bold;" routerLink="/crop">Back</button>
+   </form>
+      </div>
+</body>

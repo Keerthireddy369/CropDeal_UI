@@ -1,0 +1,55 @@
+
+<body>
+    <div class="outer">
+    <div class="card-box">
+        <div class="row">
+          <div class="col-sm-4 mt-5 ms-3 position1">
+            <a routerLink="/create" id="addbtn"  class="btn btn-success btn-rounded " style="padding:10px;">Add New</a>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="col-sm-4 mt-5 ms-3">
+          <a routerLink="/admin-page" id="backbtn"  class="btn btn-warning btn-rounded" style="float:right;padding:10px;" >Back</a>
+      </div>
+        
+        <!-- <div class="Search-hero  text-center">
+            <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search" autocomplete="off" >
+        </div> -->
+      </div>
+      <br>
+        
+        <div class="row">
+                  <div class="table-responsive">
+                      
+                        <table class="table table-striped" id="datatable" style="width: 100%;" >
+                          <thead class="bg-primary text-dark">
+                              <tr role="row" style="font-size: 30px;">
+                                <th>Crop Id</th>
+                                <th>Crop Type</th>
+                                <!-- <th>CropImage</th> -->
+                                <th>Action</th>
+                                </tr>
+                          </thead>
+                          <tbody>
+                            
+    <tr *ngFor="let item of croplist| 
+    
+    paginate:{ itemsPerPage: 4 , currentPage: p ,
+      totalItems:totalLength
+    }" style="font-size:20px;">
+    
+    <td>{{item.cropId}}</td>
+    <td>{{item.cropName}}</td>
+    <!-- <td><img [src]="item.cropImage" alt="image not found" height="100" width="100"></td> -->
+    <td><button (click)="delete(item.cropId)" class="btn btn-danger" style="padding:15px;">Delete</button></td>
+    </tr>
+                          </tbody>
+                      </table>
+                    
+                  </div>
+              </div>
+              <br>
+            </div>
+            <pagination-controls class="text-center" (pageChange)=" p =$event" style="font-weight: bolder;"></pagination-controls>
+          </div>
+          
+        </body>

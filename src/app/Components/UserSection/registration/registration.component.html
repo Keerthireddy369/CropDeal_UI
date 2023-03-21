@@ -1,0 +1,135 @@
+<div class = "bg">
+<div class="outer ">
+    <div class="container">
+      <div class="row">
+        <div class="my-5 offset-md-2 col-lg-6 col-md-7 offset-1g-4 offset-md-3">
+          <div class="panel border bg-white">
+            <div class="panel-heading">
+              <h3 class="pt-3 font-weight-bold">Registration</h3>
+            </div>
+            <div class="panel-body p-3">
+              <form form #form="ngForm" (submit)="onSignUp(form)">
+                <div class="form-group pt-3">
+                  <div class="input-field">
+                    <span class="fa fa-user p-2"></span>&nbsp;&nbsp;
+                    <input pattern="" type="text" placeholder="Username" name="Username" #Name="ngModel"
+                      [(ngModel)]="service.formData.userName" required>
+                  </div>
+                  <div *ngIf="Name.touched && Name.invalid" class="alert alert-danger">
+                    <small>Name is Required</small>
+                  </div>
+                </div>
+                <div class="form-group pt-3">
+                  <div class="input-field">
+                    <span class="fa fa-lock p-2"></span>&nbsp;&nbsp;
+                    <input pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" type="email"
+                      placeholder="Email" name="Email" #Email="ngModel" [(ngModel)]="service.formData.userEmail" required>
+                  </div>
+                  <div *ngIf="Email.touched && Email.invalid" class="alert alert-danger">
+                    <small *ngIf="Email.errors && Email.touched">Email is Invalid</small>
+                  </div>
+                </div>
+                <div class="form-group pt-3">
+                  <div class="input-field">
+                    <span class="fa fa-lock p-2"></span>&nbsp;&nbsp;
+                    <input pattern="^[6-9]\d{9}$" type="text" placeholder="PhoneNo" name="PhoneNo" #PhoneNo="ngModel"
+                      [(ngModel)]="service.formData.userPhoneNo">
+                  </div>
+                  <div *ngIf="PhoneNo.touched && PhoneNo.invalid" class="alert alert-danger">
+                    <small *ngIf="PhoneNo.errors && PhoneNo.touched">Phone number is Invalid</small>
+                  </div>
+                </div>
+                <div class="form-group pt-3">
+                  <div class="input-field">
+                    <span class="fa fa-lock p-2"></span>&nbsp;&nbsp;
+                    <input type="text" placeholder="Address" name="Address" #Address="ngModel"
+                      [(ngModel)]="service.formData.userAddress">
+                  </div>
+                  <div *ngIf="Address.touched && Address.invalid" class="alert alert-danger">
+                    <small>Address is required</small>
+                  </div>
+                </div>
+                <div class="form-group pt-3">
+                  <div class="input-field">
+                    <span class="fa fa-lock p-2"></span>&nbsp;&nbsp;
+                    <input type="password" placeholder="Password" name="password" #Password="ngModel"
+                      [(ngModel)]="service.formData.userPassword">
+                  </div>
+                  <div *ngIf="Password.touched && Password.invalid" class="alert alert-danger">
+                    <small>Password is required</small>
+                  </div>
+                </div>
+                <div class="form-group pt-3 col-12">
+                  <div class="input-field">
+                    <span class="fa fa-user p-2"></span>
+                    <label>&nbsp;Role : &nbsp;</label>
+                    <select type="text" placeholder="User Type" name="userType" #Type="ngModel"
+                      [(ngModel)]="service.formData.userType">
+                      <option value="" disabled>Choose option</option>
+                      <option value="Farmer">Farmer</option>
+                      <option value="Dealer">Dealer</option>
+  
+                    </select>
+                  </div>
+                  <div *ngIf="Type.touched && Type.invalid" class="alert alert-danger">
+                    <small>Type is required</small>
+                  </div>
+                </div>
+                <div class="form-group pt-3">
+                  <div class="input-field">
+                    <span class="fa fa-user p-2"></span>&nbsp;&nbsp;
+                    <input type="text" pattern="^\d{9,18}$" placeholder="BankAccount" name="userAccNo"
+                      #UserAccNo="ngModel" [(ngModel)]="service.formData.userAccNo">
+                  </div>
+                  <div *ngIf="UserAccNo.touched && UserAccNo.invalid" class="alert alert-danger">
+                    <small *ngIf="UserAccNo.errors && UserAccNo.touched">UserAcc number is not Valid</small>
+                  </div>
+                </div>
+                <div class="form-group pt-3">
+                  <div class="input-field">
+                    <span class="fa fa-user p-2"></span>&nbsp;&nbsp;
+                    <input type="text" pattern="^[A-Z]{4}0[A-Z0-9]{6}$" placeholder="Ifsc Code" name="userIfsc"
+                      #UserIfsc="ngModel" [(ngModel)]="service.formData.userIfsc">
+                  </div>
+                  <div *ngIf="UserIfsc.touched && UserIfsc.invalid" class="alert alert-danger">
+                    <small *ngIf="UserIfsc.errors && UserIfsc.touched">IFSC Code is Invalid</small>
+                  </div>
+                </div>
+  
+                <div class="form-group pt-3">
+                  <div class="input-field">
+                    <span class="fa fa-user p-2"></span>&nbsp;&nbsp;
+                    <input type="text" placeholder="Your Bank Name" name="userBankName" #BankName="ngModel"
+                      [(ngModel)]="service.formData.userBankName">
+                  </div>
+                  <div *ngIf="BankName.touched && BankName.invalid" class="alert alert-danger">
+                    <small>Bank Name is required</small>
+                  </div>
+                </div>
+  
+                <!-- <div class="form-group pt-3">
+                  <div class="input-field">
+                    <span class="fa fa-user p-2"></span>
+                    <label>&nbsp;Status : &nbsp;</label>
+                    <select type="text" placeholder="Status Please" name="userStatus" #UserStatus="ngModel"
+                      [(ngModel)]="service.formData.userStatus">
+                      <option value="" disabled>Choose option</option>
+                      <option value="Active">Active</option>
+                      <option value="Active" disabled>Inactive</option>
+                    </select>
+                  </div>
+                  <div *ngIf="UserStatus.touched && UserStatus.invalid" class="alert alert-danger">
+                    <small>Status is required</small>
+                  </div>
+                </div> -->
+                &nbsp;&nbsp;&nbsp;
+                <button type="submit" class="btn btn-primary btn-block mt-4 w-100">SignIn</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="back" routerLink="/" class="btn btn-danger btn-block mt-4 w-100">Back</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  

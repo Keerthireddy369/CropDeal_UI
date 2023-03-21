@@ -1,0 +1,105 @@
+<!-- header starts from here-->
+<body>
+<div class="start" style=" overflow: hidden;">
+        <div class="row">
+           
+            <div class="col-md-2">
+                <button type="back" class="btn btn-danger" routerLink="/" style="padding:10px;">Back</button>
+
+                <!--<img class="logo" style="width: 70px; height: 50px;" src="../assets/images/login.jpg" alt="">-->
+                
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row content">
+            <div class="boxContainer">
+                <table class="elementsContainer">
+                    <tr>
+                        <!-- <td>
+                            <input type="text" name="search" [(ngModel)]="searchText" placeholder="Filter Sales"
+                                class="Search">
+                        </td> -->
+                        <!--<td>        <a href="#"><i class="fa-solid fa-magnifying-glass-plus" id="material-icons"></i></a>      </td>-->
+                        
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- cart starts from here-->
+    <div class="container px-3 my-5 clearfix">
+        <!-- Shopping cart table -->
+        <div class="card" >
+            <div
+                class="card-header">
+                <h2 style="text-align:center ;color:cadetblue;font-weight: bolder;">Sales Report</h2>
+            </div>
+            <br>
+            <div
+                class="card-body" >
+                <div class="table-responsive">
+
+                    <table class="table table-bordered m-0" id="PDFbtnDiv">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h4>Invoice Id</h4>
+                                </th>
+                                <th>
+                                    <h4>Crop Name</h4>
+                                </th>
+                                <th>
+                                    <h4>Crop Quantity</h4>
+                                </th>
+                                <th>
+                                    <h4>Crop Type</h4>
+                                </th>
+                                <th>
+                                    <h4>Order Date</h4>
+                                </th>
+                                <th>
+                                    <h4>Total Price</h4>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let number of CropDetail">
+                                <td>
+                                    {{number.invoiceId}}
+                                </td>
+                                <td>
+                                    {{number.cropName}}
+                                </td>
+                                <td>
+                                    {{number.cropQty}}
+                                </td>
+                                <td>
+                                    {{number.cropType}}
+                                </td>
+                                <td>
+                                    {{number.orderDate.slice(0, 10)}}
+                                </td>
+                                <td>
+                                    {{number.orderTotal}}
+                                </td>
+                            </tr>
+                        </tbody>
+                        <br>
+                        <h4 align="right">Total Sales Amount :
+                            {{TotalSalesAmount}}</h4>
+                        
+                    </table>
+                </div>
+                <!-- / Shopping cart table --><div
+                    class=" d-flex flex-wrap justify-content-between align-items-center pb-4"><div
+                        class="d-flex"></div></div>
+                <!-- <div class="float-right"><h4 align="right">Total Sales Amount : {{TotalSalesAmount}}</h4>      </div>-->
+                
+                <!--<div class="float-right">        <p align="right">          <button class="btn btn-success btn-lg float-left" type="submit">Check            out</button>        </p>      </div>--> 
+               <div class="float-right"><p align="right"><button class="button-10"
+                            id="salesdwnldbtn" role="button" (click)="PDFbtn()"><strong>DOWNLOAD
+                                REPORT</strong></button></p></div>
+            </div></div>
+    </div>
+</body>
